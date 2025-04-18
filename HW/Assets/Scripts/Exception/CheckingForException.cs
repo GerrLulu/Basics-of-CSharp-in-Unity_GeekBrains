@@ -10,7 +10,7 @@ namespace ExceptionNS
             {
                 if (!other.CompareTag("Level"))
                     return;
-                throw new GameDesignerException("перешел через", tag, other.tag);
+                throw new GameDesignerException("Перешел через", tag, other.tag);
             }
             catch(GameDesignerException e)
             {
