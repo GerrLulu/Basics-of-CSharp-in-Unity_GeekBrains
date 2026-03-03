@@ -1,9 +1,11 @@
 using InteractiveObjectNS;
 using InteractiveObjectNS.Bonuses;
+using InteractiveObjectNS.Bonuses.Points;
+using InteractiveObjectNS.Bonuses.Speed;
 using Interface;
 using PlayerNS;
-using UI;
 using System;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +13,8 @@ namespace Geekbrains
 {
     public sealed class GameController : MonoBehaviour, IDisposable
     {
+        private int _sumBonus;
+
         public Text _text;
         public PlayerBall _playerBall;
 
@@ -30,22 +34,12 @@ namespace Geekbrains
             //_playerBall = FindObjectOfType<PlayerBall>();
             foreach(var o in _interactiveObjects)
             {
-                if (o is BadBonus badBonus)
-                {
-                    badBonus.CaughtPlayer += _displayBonuses.MinusBonus;
-                }
-                else if (o is GoodBonus goodBonus)
-                {
-                    goodBonus.CaughtPlayer += _displayBonuses.PlusBonus;
-                }
+                if (o is InteractiveObjectPoints bonus)
+                    bonus.CaughtPlayer += ChangePoints;
                 else if (o is SpeedBonus speeBonus)
-                {
                     speeBonus.CaughtPlayer += _playerBall.Booster;
-                }
                 else if (o is SlowdownBonus slowdownBonus)
-                {
                     slowdownBonus.CaughtPlayer += _playerBall.Slowdowner;
-                }
             }
         }
 
@@ -56,22 +50,14 @@ namespace Geekbrains
                 var interactiveObject = _interactiveObjects[i];
 
                 if (interactiveObject == null)
-                {
                     continue;
-                }
 
                 if (interactiveObject is IFly fly)
-                {
                     fly.Fly();
-                }
                 if (interactiveObject is IFlicker flicker)
-                {
                     flicker.Flicker();
-                }
                 if (interactiveObject is IRotation rotation)
-                {
                     rotation.Rotation();
-                }
             }
         }
 
@@ -79,24 +65,22 @@ namespace Geekbrains
         {
             foreach (var o in _interactiveObjects)
             {
-                if (o is BadBonus badBonus)
-                {
-                    badBonus.CaughtPlayer -= _displayBonuses.MinusBonus;
-                }
-                else if (o is GoodBonus goodBonus)
-                {
-                    goodBonus.CaughtPlayer -= _displayBonuses.PlusBonus;
-                }
+                if (o is InteractiveObjectPoints bonus)
+                    bonus.CaughtPlayer -= ChangePoints;
                 else if (o is SpeedBonus speeBonus)
-                {
                     speeBonus.CaughtPlayer -= _playerBall.Booster;
-                }
                 else if (o is SlowdownBonus slowdownBonus)
-                {
                     slowdownBonus.CaughtPlayer -= _playerBall.Slowdowner;
-                }
+
                 Destroy(o.gameObject);
             }
+        }
+
+
+        private void ChangePoints(int value)
+        {
+            _sumBonus += value;
+            _displayBonuses.Display(_sumBonus);
         }
     }
 }

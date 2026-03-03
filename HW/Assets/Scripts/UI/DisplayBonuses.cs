@@ -4,7 +4,6 @@ namespace UI
 {
     public sealed class DisplayBonuses
     {
-        private int _sum = 0;
         private Text _text;
 
 
@@ -13,18 +12,6 @@ namespace UI
             _text = text;
         }
 
-
-        public void PlusBonus(int value)
-        {
-            _sum += value;
-            Display(_sum);
-        }
-
-        public void MinusBonus(int value)
-        {
-            _sum -= value;
-            Display(_sum);
-        }
 
         public void Display(int value)
         {

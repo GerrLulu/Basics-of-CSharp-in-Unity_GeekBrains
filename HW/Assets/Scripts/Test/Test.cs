@@ -1,5 +1,6 @@
-using InteractiveObjectNS.Bonuses;
+using InteractiveObjectNS.Bonuses.Points;
 using UnityEngine;
+
 
 namespace Test
 {
