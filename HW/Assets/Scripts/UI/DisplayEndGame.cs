@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
@@ -8,9 +9,9 @@ namespace UI
         private Text _finishGameLabel;
 
 
-        public DisplayEndGame(Text finishGameLabel)
+        public DisplayEndGame(GameObject endGame)
         {
-            _finishGameLabel = finishGameLabel;
+            _finishGameLabel = endGame.GetComponentInChildren<Text>();
             _finishGameLabel.text = String.Empty;
         }
 

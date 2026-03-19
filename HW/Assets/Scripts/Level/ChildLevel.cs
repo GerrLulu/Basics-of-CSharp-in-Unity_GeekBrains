@@ -4,7 +4,7 @@ namespace Level
     {
         private void FixedUpdate()
         {
-            RotateLevel();
+            //RotateLevel();
         }
     }
 }

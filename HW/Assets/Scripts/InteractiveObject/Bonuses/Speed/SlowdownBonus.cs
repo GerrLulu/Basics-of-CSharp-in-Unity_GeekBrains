@@ -2,7 +2,7 @@ using Interface;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace InteractiveObjectNS.Bonuses.Speed
+namespace IntrctvObjcts.Bonuses.Speed
 {
     public sealed class SlowdownBonus : InteractiveObjectSpeed, IRotation
     {
@@ -15,6 +15,12 @@ namespace InteractiveObjectNS.Bonuses.Speed
         public void Rotation()
         {
             transform.Rotate(Vector3.up * (Time.deltaTime * _speedRotation), Space.World);
+        }
+
+        public override void Execute()
+        {
+            base.Execute();
+            Rotation();
         }
 
         public override object Clone()

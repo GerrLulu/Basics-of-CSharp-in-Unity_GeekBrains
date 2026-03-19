@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ExceptionNS
+namespace Excptn
 {
     public class CheckingForException : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-using InteractiveObjectNS.Bonuses.Points;
+using IntrctvObjcts.Bonuses.Points;
 using UnityEngine;
 
 

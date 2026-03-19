@@ -1,6 +1,6 @@
 using System;
 
-namespace ExceptionNS
+namespace Excptn
 {
     public sealed class GameDesignerException : Exception
     {

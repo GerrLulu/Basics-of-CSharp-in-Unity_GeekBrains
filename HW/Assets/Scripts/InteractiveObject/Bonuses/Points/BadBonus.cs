@@ -2,7 +2,7 @@ using Interface;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace InteractiveObjectNS.Bonuses.Points
+namespace IntrctvObjcts.Bonuses.Points
 {
     public sealed class BadBonus : InteractiveObjectPoints, IRotation
     {
@@ -15,6 +15,12 @@ namespace InteractiveObjectNS.Bonuses.Points
         public void Rotation()
         {
             transform.Rotate(Vector3.up * (Time.deltaTime * _speedRotation), Space.World);
+        }
+
+        public override void Execute()
+        {
+            base.Execute();
+            Rotation();
         }
 
         public override object Clone()

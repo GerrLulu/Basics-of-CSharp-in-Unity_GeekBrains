@@ -1,31 +1,26 @@
-using Interface;
 using System.Collections;
 using UnityEngine;
 using static UnityEngine.Debug;
 
-namespace PlayerNS
+namespace Model
 {
-    public sealed class PlayerBall : Player, ISpeedChanger
+    public sealed class PlayerBall : PlayerBase
     {
-        private float _boost = 10.0f;
-        private float _slow = 3.0f;
+        [SerializeField] private float _boost = 10.0f;
+        [SerializeField] private float _slow = 3.0f;
+
+        private Rigidbody _rigidbody;
 
 
-        private void FixedUpdate()
-        {
-            Move();
-        }
+        private void Start() => _rigidbody = GetComponent<Rigidbody>();
 
 
-        public void Booster()
-        {
-            StartCoroutine(BoostSpeed());
-        }
+        public override void Move (float x, float y, float z) => _rigidbody.AddForce(new Vector3(
+            x, y, z) * Speed);
 
-        public void Slowdowner()
-        {
-            StartCoroutine(SlowSpeed());
-        }
+        public void Booster() => StartCoroutine(BoostSpeed());
+
+        public void Slowdowner() => StartCoroutine(SlowSpeed());
 
 
         private IEnumerator BoostSpeed()

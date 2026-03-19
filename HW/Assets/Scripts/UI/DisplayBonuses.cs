@@ -1,21 +1,24 @@
+using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
     public sealed class DisplayBonuses
     {
-        private Text _text;
+        private Text _bonuseLable;
 
 
-        public DisplayBonuses(Text text)
+        public DisplayBonuses(GameObject bonus)
         {
-            _text = text;
+            _bonuseLable = bonus.GetComponentInChildren<Text>();
+            _bonuseLable.text = String.Empty;
         }
 
 
         public void Display(int value)
         {
-            _text.text = $"Вы набрали {value}";
+            _bonuseLable.text = $"Вы набрали {value}";
         }
     }
 }

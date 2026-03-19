@@ -1,10 +1,11 @@
 using Interface;
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace InteractiveObjectNS
+namespace IntrctvObjcts
 {
-    public abstract class InteractiveObject : MonoBehaviour, IFly
+    public abstract class InteractiveObject : MonoBehaviour, IFly, ICloneable, IExecute
     {
         private bool _isInteractable;
         private float _lengthFly;
@@ -17,8 +18,7 @@ namespace InteractiveObjectNS
             private set
             {
                 _isInteractable = value;
-                GetComponent<Renderer>().enabled = _isInteractable;
-                GetComponent<Collider>().enabled = _isInteractable;
+                gameObject.SetActive(_isInteractable);
             }
         }
 
@@ -36,10 +36,10 @@ namespace InteractiveObjectNS
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (IsInteractable || collision.gameObject.tag == "Player")
+            if (_isInteractable && collision.gameObject.tag == "Player")
             {
                 Interaction();
-                Destroy(gameObject);
+                IsInteractable = false;
             }
             return;
         }
@@ -53,5 +53,17 @@ namespace InteractiveObjectNS
         }
 
         protected abstract void Interaction();
+
+        public virtual object Clone()
+        {
+            return null; 
+        }
+
+        public virtual void Execute()
+        {
+            if (!IsInteractable)
+                return;
+            Fly();
+        }
     }
 }

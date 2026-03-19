@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7747288883943382586}
   - component: {fileID: 3665226712739332120}
   - component: {fileID: 6800163875359226427}
-  - component: {fileID: 5997550514836248341}
+  - component: {fileID: 9195528786942651529}
   m_Layer: 0
   m_Name: Slowdown Bonus
   m_TagString: Untagged
@@ -141,7 +141,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5997550514836248341
+--- !u!114 &9195528786942651529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80be98cfe65c62c418dd98eb09930731, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Speed.SlowdownBonus
 --- !u!1 &1100030492839002674
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 1425951879026851150}
   - component: {fileID: 8033328073464514315}
   - component: {fileID: 6624272584566876847}
-  - component: {fileID: 1544350110050369863}
+  - component: {fileID: 1419715898698071628}
   m_Layer: 0
   m_Name: Speed Bonus
   m_TagString: Untagged
@@ -347,7 +347,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1544350110050369863
+--- !u!114 &1419715898698071628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 711f9575007a0ab498a7b2e04ee7cf91, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Speed.SpeedBonus
 --- !u!1 &5554001910213092461
 GameObject:
   m_ObjectHideFlags: 0
@@ -5847,7 +5847,7 @@ GameObject:
   - component: {fileID: 1633790654560047735}
   - component: {fileID: 8273071392550445120}
   - component: {fileID: 2858714940688492735}
-  - component: {fileID: 2720723993637742742}
+  - component: {fileID: 4104554650951541896}
   m_Layer: 0
   m_Name: Good Bonus
   m_TagString: Untagged
@@ -5975,7 +5975,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2720723993637742742
+--- !u!114 &4104554650951541896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5986,7 +5986,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cea927c4f08ce54da1fec6dcbd9d963, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Points.GoodBonus
   _points: 5
 --- !u!1 &7120836007525602667
 GameObject:
@@ -6001,7 +6001,7 @@ GameObject:
   - component: {fileID: 3495728223650211083}
   - component: {fileID: 8205681008850744698}
   - component: {fileID: 4795360613890292853}
-  - component: {fileID: 4232734211749240606}
+  - component: {fileID: 8971055722388962914}
   m_Layer: 0
   m_Name: Bad Bonus
   m_TagString: Untagged
@@ -6129,7 +6129,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4232734211749240606
+--- !u!114 &8971055722388962914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6140,5 +6140,5 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60730085298c92f40b2a0d22b6f4434a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Points.BadBonus
   _points: -5
