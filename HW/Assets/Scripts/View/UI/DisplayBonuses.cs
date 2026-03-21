@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace View.UI
 {
     public sealed class DisplayBonuses
     {
@@ -18,7 +18,7 @@ namespace UI
 
         public void Display(int value)
         {
-            _bonuseLable.text = $"Вы набрали {value}";
+            _bonuseLable.text = $"Вы набрали {value} очков";
         }
     }
 }

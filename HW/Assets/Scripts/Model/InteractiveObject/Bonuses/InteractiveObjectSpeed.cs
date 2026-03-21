@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace IntrctvObjcts.Bonuses
+namespace Model.IntrctvObjcts.Bonuses
 {
-    public abstract class InteractiveObjectSpeed : InteractiveObject/*, ICloneable*/
+    public abstract class InteractiveObjectSpeed : InteractiveObject
     {
         public Action CaughtPlayer = delegate { };
 

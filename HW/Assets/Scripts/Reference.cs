@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using Model.Player;
 using UnityEngine;
 
 namespace Geekbrains
@@ -7,9 +7,10 @@ namespace Geekbrains
     {
         private PlayerBall _playerBall;
         private Camera _mainCamera;
-        private GameObject _bonuse;
-        private GameObject _endGame;
         private Canvas _canvas;
+        private GameObject _bonuseDisplay;
+        private GameObject _speedDisplay;
+        private GameObject _endGame;
 
 
         public PlayerBall PlayerBall
@@ -18,7 +19,7 @@ namespace Geekbrains
             {
                 if (_playerBall == null)
                 {
-                    var gameObject = Resources.Load<PlayerBall>("Player");
+                    var gameObject = Resources.Load<PlayerBall>("PlayerBall");
                     _playerBall = Object.Instantiate(gameObject);
                 }
 
@@ -34,32 +35,6 @@ namespace Geekbrains
                 return _mainCamera;
             }
         }
-        public GameObject Bonuse
-        {
-            get
-            {
-                if (_bonuse == null)
-                {
-                    var gameObject = Resources.Load<GameObject>("UI/Bonuse");
-                    _bonuse = Object.Instantiate(gameObject, Canvas.transform);
-                }
-
-                return _bonuse;
-            }
-        }
-        public GameObject EndGame
-        {
-            get
-            {
-                if (_endGame == null)
-                {
-                    var gameObject = Resources.Load<GameObject>("UI/EndGame");
-                    _endGame = Object.Instantiate(gameObject, Canvas.transform);
-                }
-
-                return _endGame;
-            }
-        }
         public Canvas Canvas
         {
             get
@@ -69,5 +44,44 @@ namespace Geekbrains
                 return _canvas;
             }
         }
+        public GameObject BonuseDisplay
+        {
+            get
+            {
+                if (_bonuseDisplay == null)
+                {
+                    var gameObject = Resources.Load<GameObject>("UI/Bonuse");
+                    _bonuseDisplay = Object.Instantiate(gameObject, Canvas.transform);
+                }
+
+                return _bonuseDisplay;
+            }
+        }
+        public GameObject SpeedDisplay
+        {
+            get
+            {
+                if (_speedDisplay == null)
+                {
+                    var gameObject = Resources.Load<GameObject>("UI/SpeedInfo");
+                    _speedDisplay = Object.Instantiate(gameObject, Canvas.transform);
+                }
+
+                return _speedDisplay;
+            }
+        }
+        //public GameObject EndGame
+        //{
+        //    get
+        //    {
+        //        if (_endGame == null)
+        //        {
+        //            var gameObject = Resources.Load<GameObject>("UI/EndGame");
+        //            _endGame = Object.Instantiate(gameObject, Canvas.transform);
+        //        }
+
+        //        return _endGame;
+        //    }
+        //}
     }
 }

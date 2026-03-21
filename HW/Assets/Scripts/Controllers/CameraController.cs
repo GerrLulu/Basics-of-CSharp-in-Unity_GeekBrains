@@ -14,7 +14,6 @@ namespace Controllers
         {
             _player = player;
             _mainCamera = mainCamera;
-            _mainCamera.LookAt(_player);
             _offset = _mainCamera.position - _player.position;
         }
 

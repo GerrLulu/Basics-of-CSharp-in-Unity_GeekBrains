@@ -1,5 +1,5 @@
 ﻿using Interface;
-using IntrctvObjcts;
+using Model.IntrctvObjcts;
 using System;
 using System.Collections;
 using Object = UnityEngine.Object;

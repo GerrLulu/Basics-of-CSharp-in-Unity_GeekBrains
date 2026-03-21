@@ -1,5 +1,5 @@
 ﻿using Interface;
-using Model;
+using Model.Player;
 using UnityEngine;
 
 namespace Controllers

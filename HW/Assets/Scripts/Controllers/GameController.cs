@@ -1,11 +1,11 @@
 using Enumes;
 using Geekbrains;
-using IntrctvObjcts.Bonuses;
-using IntrctvObjcts.Bonuses.Points;
-using IntrctvObjcts.Bonuses.Speed;
-using Model;
+using Model.IntrctvObjcts.Bonuses;
+using Model.IntrctvObjcts.Bonuses.Points;
+using Model.IntrctvObjcts.Bonuses.Speed;
+using Model.Player;
 using System;
-using UI;
+using View.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +15,6 @@ namespace Controllers
     {
 
         public Text Text;
-        //public PlayerBall PlayerBall;
         public PlayerType PlayerType = PlayerType.Ball;
 
         private int _sumBonus;
@@ -24,6 +23,7 @@ namespace Controllers
         private CameraController _cameraController;
         private InputController _inputController;
         private DisplayBonuses _displayBonuses;
+        private DisplaySpeed _displaySpeed;
 
 
         private void Awake()
@@ -44,7 +44,7 @@ namespace Controllers
                 player = _reference.PlayerBall;
             }
 
-            _cameraController = new CameraController(player.transform, player.transform);
+            _cameraController = new CameraController(player.transform, _reference.MainCamera.transform);
             _interactiveObjects.AddExecuteObject(_cameraController);
 
             if (Application.platform == RuntimePlatform.WindowsEditor)
@@ -53,9 +53,14 @@ namespace Controllers
                 _interactiveObjects.AddExecuteObject(_inputController);
             }
 
-            _displayBonuses = new DisplayBonuses(_reference.Bonuse);
+            _displayBonuses = new DisplayBonuses(_reference.BonuseDisplay);
 
-            foreach(var o in _interactiveObjects)
+            _displaySpeed = new DisplaySpeed(_reference.SpeedDisplay);
+            _reference.PlayerBall.SpeedBoost += ChangeSpeed;
+            _reference.PlayerBall.SpeedSlow += ChangeSpeed;
+            _reference.PlayerBall.SpeedNorm += ChangeSpeed;
+
+            foreach (var o in _interactiveObjects)
             {
                 if (o is InteractiveObjectPoints bonus)
                     bonus.CaughtPlayer += ChangePoints;
@@ -81,6 +86,10 @@ namespace Controllers
 
         public void Dispose()
         {
+            _reference.PlayerBall.SpeedBoost -= ChangeSpeed;
+            _reference.PlayerBall.SpeedSlow -= ChangeSpeed;
+            _reference.PlayerBall.SpeedNorm -= ChangeSpeed;
+
             foreach (var o in _interactiveObjects)
             {
                 if (o is InteractiveObjectPoints bonus)
@@ -98,5 +107,7 @@ namespace Controllers
             _sumBonus += value;
             _displayBonuses.Display(_sumBonus);
         }
+
+        private void ChangeSpeed(string value) => _displaySpeed.Display(value);
     }
 }

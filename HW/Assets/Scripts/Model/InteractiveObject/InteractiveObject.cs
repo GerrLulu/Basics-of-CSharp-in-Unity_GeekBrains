@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace IntrctvObjcts
+namespace Model.IntrctvObjcts
 {
     public abstract class InteractiveObject : MonoBehaviour, IFly, ICloneable, IExecute
     {

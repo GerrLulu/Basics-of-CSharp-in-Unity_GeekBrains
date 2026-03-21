@@ -2,9 +2,9 @@ using Interface;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace IntrctvObjcts.Bonuses.Points
+namespace Model.IntrctvObjcts.Bonuses.Speed
 {
-    public sealed class BadBonus : InteractiveObjectPoints, IRotation
+    public sealed class SlowdownBonus : InteractiveObjectSpeed, IRotation
     {
         private float _speedRotation;
 
@@ -25,7 +25,7 @@ namespace IntrctvObjcts.Bonuses.Points
 
         public override object Clone()
         {
-            return Instantiate(gameObject, new Vector3(6.84f, 0.6f, 0.44f),
+            return Instantiate(gameObject, new Vector3(-6.79f, 0.6f, 0.53f),
                 transform.rotation, transform.parent);
         }
     }

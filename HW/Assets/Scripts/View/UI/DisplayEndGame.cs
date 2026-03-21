@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace View.UI
 {
     public sealed class DisplayEndGame
     {

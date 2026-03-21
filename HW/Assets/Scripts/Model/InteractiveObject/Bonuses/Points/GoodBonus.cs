@@ -1,9 +1,9 @@
 using Interface;
 using UnityEngine;
 
-namespace IntrctvObjcts.Bonuses.Speed
+namespace Model.IntrctvObjcts.Bonuses.Points
 {
-    public sealed class SpeedBonus : InteractiveObjectSpeed, IFlicker
+    public sealed class GoodBonus : InteractiveObjectPoints, IFlicker
     {
         private Material _material;
 
@@ -25,8 +25,8 @@ namespace IntrctvObjcts.Bonuses.Speed
 
         public override object Clone()
         {
-            return Instantiate(gameObject, new Vector3(-6.76f, 0.6f, -3.61f),
-                transform.rotation, transform.parent);
+            return Instantiate(gameObject, new Vector3(6.77f, 0.6f, -5.38f),
+                transform.rotation,transform.parent);
         }
     }
 }

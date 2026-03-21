@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-namespace IntrctvObjcts.Bonuses
+namespace Model.IntrctvObjcts.Bonuses
 {
-    public abstract class InteractiveObjectPoints : InteractiveObject, /*ICloneable,*/ IComparable<InteractiveObjectPoints>
+    public abstract class InteractiveObjectPoints : InteractiveObject, IComparable<InteractiveObjectPoints>
     {
         [SerializeField] private int _points;
         

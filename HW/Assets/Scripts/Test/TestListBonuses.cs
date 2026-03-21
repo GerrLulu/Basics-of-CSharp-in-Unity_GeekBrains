@@ -1,4 +1,4 @@
-using IntrctvObjcts.Bonuses.Points;
+using Model.IntrctvObjcts.Bonuses.Points;
 using System;
 using Object = UnityEngine.Object; 
 
