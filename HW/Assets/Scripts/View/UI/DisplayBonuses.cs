@@ -16,9 +16,6 @@ namespace View.UI
         }
 
 
-        public void Display(int value)
-        {
-            _bonuseLable.text = $"Вы набрали {value} очков";
-        }
+        public void Display(int value) => _bonuseLable.text = $"Вы набрали {value} очков";
     }
 }
