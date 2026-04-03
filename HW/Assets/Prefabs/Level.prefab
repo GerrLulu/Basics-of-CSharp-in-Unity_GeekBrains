@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8270140350854390303}
   - component: {fileID: 7747288883943382586}
   - component: {fileID: 3665226712739332120}
-  - component: {fileID: 6800163875359226427}
   - component: {fileID: 9195528786942651529}
+  - component: {fileID: 3201990156285967168}
   m_Layer: 0
   m_Name: Slowdown Bonus
   m_TagString: Untagged
@@ -108,39 +108,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6800163875359226427
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865009946746732555}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &9195528786942651529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +126,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80be98cfe65c62c418dd98eb09930731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Speed.SlowdownBonus
+--- !u!114 &3201990156285967168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865009946746732555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2963be8c4f3964c986cae0299254bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinMap.RadarObj
+  _ico: {fileID: 2241955461434454478, guid: 2c6739552dcaca347986c95f11a5219d, type: 3}
 --- !u!1 &1100030492839002674
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,8 +204,8 @@ GameObject:
   - component: {fileID: 5039321075947347251}
   - component: {fileID: 1425951879026851150}
   - component: {fileID: 8033328073464514315}
-  - component: {fileID: 6624272584566876847}
   - component: {fileID: 1419715898698071628}
+  - component: {fileID: 6666003876459073906}
   m_Layer: 0
   m_Name: Speed Bonus
   m_TagString: Untagged
@@ -314,39 +300,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6624272584566876847
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5297937308750374776}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1419715898698071628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +318,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711f9575007a0ab498a7b2e04ee7cf91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Speed.SpeedBonus
+--- !u!114 &6666003876459073906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5297937308750374776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2963be8c4f3964c986cae0299254bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinMap.RadarObj
+  _ico: {fileID: 2241955461434454478, guid: 2c6739552dcaca347986c95f11a5219d, type: 3}
 --- !u!1 &5554001910213092461
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,7 +2229,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5565327069188323916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 217ea1a330d701140bb08f6118a218ad, type: 3}
   m_Name: 
@@ -5846,8 +5818,8 @@ GameObject:
   - component: {fileID: 2656163444340341169}
   - component: {fileID: 1633790654560047735}
   - component: {fileID: 8273071392550445120}
-  - component: {fileID: 2858714940688492735}
   - component: {fileID: 4104554650951541896}
+  - component: {fileID: 8254517318649128107}
   m_Layer: 0
   m_Name: Good Bonus
   m_TagString: Untagged
@@ -5942,39 +5914,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2858714940688492735
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6859559508271169088}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &4104554650951541896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5988,6 +5933,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Points.GoodBonus
   _points: 5
+--- !u!114 &8254517318649128107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859559508271169088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2963be8c4f3964c986cae0299254bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinMap.RadarObj
+  _ico: {fileID: 2241955461434454478, guid: 2c6739552dcaca347986c95f11a5219d, type: 3}
 --- !u!1 &7120836007525602667
 GameObject:
   m_ObjectHideFlags: 0
@@ -6000,8 +5958,8 @@ GameObject:
   - component: {fileID: 5002861339469404842}
   - component: {fileID: 3495728223650211083}
   - component: {fileID: 8205681008850744698}
-  - component: {fileID: 4795360613890292853}
   - component: {fileID: 8971055722388962914}
+  - component: {fileID: 6888969042408526611}
   m_Layer: 0
   m_Name: Bad Bonus
   m_TagString: Untagged
@@ -6096,39 +6054,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &4795360613890292853
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7120836007525602667}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &8971055722388962914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6142,3 +6073,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Points.BadBonus
   _points: -5
+--- !u!114 &6888969042408526611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7120836007525602667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2963be8c4f3964c986cae0299254bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinMap.RadarObj
+  _ico: {fileID: 2241955461434454478, guid: 2c6739552dcaca347986c95f11a5219d, type: 3}

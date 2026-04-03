@@ -1,7 +1,7 @@
 ﻿using Model.Player;
 using UnityEngine;
 
-namespace Geekbrains
+namespace Helper
 {
     public sealed class Reference
     {
@@ -10,7 +10,7 @@ namespace Geekbrains
         private Canvas _canvas;
         private GameObject _bonuseDisplay;
         private GameObject _speedDisplay;
-        private GameObject _endGame;
+        //private GameObject _endGame;
 
 
         public PlayerBall PlayerBall
@@ -70,6 +70,7 @@ namespace Geekbrains
                 return _speedDisplay;
             }
         }
+
         //public GameObject EndGame
         //{
         //    get

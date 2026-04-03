@@ -15,7 +15,7 @@ namespace Model.IntrctvObjcts
         public bool IsInteractable
         {
             get {  return _isInteractable; }
-            private set
+            set
             {
                 _isInteractable = value;
                 gameObject.SetActive(_isInteractable);
@@ -34,9 +34,9 @@ namespace Model.IntrctvObjcts
                 renderer.material.color = _color;
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider other)
         {
-            if (_isInteractable && collision.gameObject.tag == "Player")
+            if (_isInteractable && other.gameObject.tag == "Player")
             {
                 Interaction();
                 IsInteractable = false;

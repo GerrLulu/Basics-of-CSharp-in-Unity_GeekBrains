@@ -10,11 +10,13 @@ namespace Geekbrains
     {
         private int _index = -1;
         private InteractiveObject _current;
+        private InteractiveObject[] _interObjects; 
         private IExecute[] _interactiveObjects;
 
 
         public int Length => _interactiveObjects.Length;
         public object Current => _interactiveObjects[_index];
+        public InteractiveObject[] InteractiveObjects { get { return _interObjects; } }
         public IExecute this[int index]
         {
             get => _interactiveObjects[index];
@@ -24,10 +26,10 @@ namespace Geekbrains
 
         public ListExecuteObject()
         {
-            var interactiveObjects = Object.FindObjectsOfType<InteractiveObject>();
-            for (var i = 0; i < interactiveObjects.Length; i++)
+            _interObjects = Object.FindObjectsOfType<InteractiveObject>();
+            for (var i = 0; i < _interObjects.Length; i++)
             {
-                if (interactiveObjects[i] is IExecute interactiveObject)
+                if (_interObjects[i] is IExecute interactiveObject)
                     AddExecuteObject(interactiveObject);
             }
         }

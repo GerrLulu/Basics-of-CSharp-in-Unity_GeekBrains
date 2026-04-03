@@ -1,23 +1,25 @@
 using Enumes;
 using Geekbrains;
+using Helper;
+using Interface;
 using Model.IntrctvObjcts.Bonuses;
 using Model.IntrctvObjcts.Bonuses.Points;
 using Model.IntrctvObjcts.Bonuses.Speed;
 using Model.Player;
 using System;
-using View.UI;
 using UnityEngine;
 using UnityEngine.UI;
+using View.UI;
 
 namespace Controllers
 {
     public sealed class GameController : MonoBehaviour, IDisposable
     {
-
         public Text Text;
         public PlayerType PlayerType = PlayerType.Ball;
 
         private int _sumBonus;
+
         private ListExecuteObject _interactiveObjects;
         private Reference _reference;
         private CameraController _cameraController;
@@ -44,12 +46,22 @@ namespace Controllers
                 player = _reference.PlayerBall;
             }
 
+            foreach (IExecute intObj in _interactiveObjects)
+            {
+                if (intObj is InteractiveObjectPoints bonus)
+                    bonus.CaughtPlayer += ChangePoints;
+                else if (intObj is SpeedBonus speedBonus)
+                    speedBonus.CaughtPlayer += _reference.PlayerBall.Booster;
+                else if (intObj is SlowdownBonus slowdownBonus)
+                    slowdownBonus.CaughtPlayer += _reference.PlayerBall.Slowdowner;
+            }
+
             _cameraController = new CameraController(player.transform, _reference.MainCamera.transform);
             _interactiveObjects.AddExecuteObject(_cameraController);
 
             if (Application.platform == RuntimePlatform.WindowsEditor)
             {
-                _inputController = new InputController(player);
+                _inputController = new InputController(player, _interactiveObjects);
                 _interactiveObjects.AddExecuteObject(_inputController);
             }
 
@@ -59,23 +71,13 @@ namespace Controllers
             _reference.PlayerBall.SpeedBoost += ChangeSpeed;
             _reference.PlayerBall.SpeedSlow += ChangeSpeed;
             _reference.PlayerBall.SpeedNorm += ChangeSpeed;
-
-            foreach (var o in _interactiveObjects)
-            {
-                if (o is InteractiveObjectPoints bonus)
-                    bonus.CaughtPlayer += ChangePoints;
-                else if (o is SpeedBonus speedBonus)
-                    speedBonus.CaughtPlayer += _reference.PlayerBall.Booster;
-                else if (o is SlowdownBonus slowdownBonus)
-                    slowdownBonus.CaughtPlayer += _reference.PlayerBall.Slowdowner;
-            }
         }
 
         private void Update()
         {
             for (var i = 0; i < _interactiveObjects.Length; i++)
             {
-                var interactiveObject = _interactiveObjects[i];
+                IExecute interactiveObject = _interactiveObjects[i];
 
                 if (interactiveObject == null)
                     continue;
@@ -90,13 +92,13 @@ namespace Controllers
             _reference.PlayerBall.SpeedSlow -= ChangeSpeed;
             _reference.PlayerBall.SpeedNorm -= ChangeSpeed;
 
-            foreach (var o in _interactiveObjects)
+            foreach (IExecute intObj in _interactiveObjects)
             {
-                if (o is InteractiveObjectPoints bonus)
+                if (intObj is InteractiveObjectPoints bonus)
                     bonus.CaughtPlayer -= ChangePoints;
-                else if (o is SpeedBonus speeBonus)
+                else if (intObj is SpeedBonus speeBonus)
                     speeBonus.CaughtPlayer -= _reference.PlayerBall.Booster;
-                else if (o is SlowdownBonus slowdownBonus)
+                else if (intObj is SlowdownBonus slowdownBonus)
                     slowdownBonus.CaughtPlayer -= _reference.PlayerBall.Slowdowner;
             }
         }
