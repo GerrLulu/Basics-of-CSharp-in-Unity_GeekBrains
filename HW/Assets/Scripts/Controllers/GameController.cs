@@ -8,14 +8,12 @@ using Model.IntrctvObjcts.Bonuses.Speed;
 using Model.Player;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 using View.UI;
 
 namespace Controllers
 {
     public sealed class GameController : MonoBehaviour, IDisposable
     {
-        public Text Text;
         public PlayerType PlayerType = PlayerType.Ball;
 
         private int _sumBonus;

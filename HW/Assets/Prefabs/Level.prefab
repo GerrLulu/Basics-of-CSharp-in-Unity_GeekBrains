@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80be98cfe65c62c418dd98eb09930731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Speed.SlowdownBonus
+  _isAllowScaling: 1
+  _activeDis: 0.2
 --- !u!114 &3201990156285967168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711f9575007a0ab498a7b2e04ee7cf91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Speed.SpeedBonus
+  _isAllowScaling: 1
+  _activeDis: 0.2
 --- !u!114 &6666003876459073906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5932,6 +5936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cea927c4f08ce54da1fec6dcbd9d963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Points.GoodBonus
+  _isAllowScaling: 1
+  _activeDis: 0.2
   _points: 5
 --- !u!114 &8254517318649128107
 MonoBehaviour:
@@ -6072,6 +6078,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60730085298c92f40b2a0d22b6f4434a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntrctvObjcts.Bonuses.Points.BadBonus
+  _isAllowScaling: 1
+  _activeDis: 0.2
   _points: -5
 --- !u!114 &6888969042408526611
 MonoBehaviour:

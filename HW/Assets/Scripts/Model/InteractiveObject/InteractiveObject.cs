@@ -7,6 +7,10 @@ namespace Model.IntrctvObjcts
 {
     public abstract class InteractiveObject : MonoBehaviour, IFly, ICloneable, IExecute
     {
+        [Header ("Для редактора")]
+        [SerializeField] private bool _isAllowScaling = true;
+        [SerializeField] private float _activeDis;
+
         private bool _isInteractable;
         private float _lengthFly;
 
@@ -42,6 +46,23 @@ namespace Model.IntrctvObjcts
                 IsInteractable = false;
             }
             return;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawIcon(transform.position, "InteractiveObjectImage.jpg",
+                _isAllowScaling);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+#if UNITY_EDITOR
+            Transform t = transform;
+
+            var flat = new Vector3(_activeDis, 0, _activeDis);
+            Gizmos.matrix = Matrix4x4.TRS(t.position, t.rotation, flat);
+            Gizmos.DrawSphere(Vector3.zero, 5);
+#endif
         }
 
 

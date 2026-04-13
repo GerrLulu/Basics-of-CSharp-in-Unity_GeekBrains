@@ -1,4 +1,5 @@
 ﻿using Interface;
+using MinMap;
 using Model.IntrctvObjcts;
 using System;
 using System.Collections;
@@ -10,7 +11,8 @@ namespace Geekbrains
     {
         private int _index = -1;
         private InteractiveObject _current;
-        private InteractiveObject[] _interObjects; 
+        private InteractiveObject[] _interObjects;
+        private Radar _radar;
         private IExecute[] _interactiveObjects;
 
 
@@ -32,6 +34,9 @@ namespace Geekbrains
                 if (_interObjects[i] is IExecute interactiveObject)
                     AddExecuteObject(interactiveObject);
             }
+
+            _radar = Object.FindObjectOfType<Radar>();
+            AddExecuteObject(_radar);
         }
 
 

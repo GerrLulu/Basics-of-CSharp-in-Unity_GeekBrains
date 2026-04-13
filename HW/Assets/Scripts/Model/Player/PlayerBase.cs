@@ -4,6 +4,7 @@ namespace Model.Player
 {
     public abstract class PlayerBase : MonoBehaviour
     {
+        [Header("Скорость игрока")]
         public float Speed;
 
 

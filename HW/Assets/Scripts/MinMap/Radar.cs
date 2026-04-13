@@ -1,10 +1,18 @@
+using Interface;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace MinMap
 {
-    public sealed class Radar : MonoBehaviour
+    public sealed class RadarObject
+    {
+        public Image Icon;
+        public GameObject Owner;
+    }
+
+
+    public sealed class Radar : MonoBehaviour, IExecute
     {
         private readonly float _mapScale = 2;
         private Transform _transfPlayer;
@@ -59,17 +67,10 @@ namespace MinMap
         }
 
 
-        private void Update()
+        public void Execute()
         {
             if (Time.frameCount % 2 == 0)
                 DrawRadarDots();
         }
-    }
-
-
-    public sealed class RadarObject
-    {
-        public Image Icon;
-        public GameObject Owner;
     }
 }

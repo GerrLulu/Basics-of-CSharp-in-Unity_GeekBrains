@@ -6,13 +6,17 @@ namespace Model.Player
 {
     public sealed class PlayerBall : PlayerBase
     {
+        [Space(10)]
+        [Header("Для редактирования скорости")]
         [SerializeField] private float _boost;
         [SerializeField] private float _slow;
-        [SerializeField] private float _timeChangeSpeed; 
-
-        private string _speedBoostInfo = "Скорость увеличелась";
-        private string _speedSlowInfo = "Скорость увеличелась";
-        private string _speedNormInfo = "Скорость стала нормальной";
+        [Tooltip("Сколько времени скорость будет изменена")]
+        [SerializeField] private float _timeChangeSpeed;
+        [Space(10)]
+        [Header("Текстовые сообщения при изменении скорости")]
+        [SerializeField] private string _speedBoostInfo = "Скорость увеличелась";
+        [SerializeField] private string _speedSlowInfo = "Скорость увеличелась";
+        [SerializeField] private string _speedNormInfo = "Скорость стала нормальной";
         private Rigidbody _rigidbody;
 
         public event Action<string> SpeedBoost = delegate (string s) { };
