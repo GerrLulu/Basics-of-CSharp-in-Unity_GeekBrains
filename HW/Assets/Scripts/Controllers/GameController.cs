@@ -2,6 +2,7 @@ using Enumes;
 using Geekbrains;
 using Helper;
 using Interface;
+using Model.Finish;
 using Model.IntrctvObjcts.Bonuses;
 using Model.IntrctvObjcts.Bonuses.Points;
 using Model.IntrctvObjcts.Bonuses.Speed;
@@ -24,6 +25,8 @@ namespace Controllers
         private InputController _inputController;
         private DisplayBonuses _displayBonuses;
         private DisplaySpeed _displaySpeed;
+        private DisplayEndGame _displayEndGame;
+        private FinishPoint _finishPoint;
 
 
         private void Awake()
@@ -33,25 +36,20 @@ namespace Controllers
             FindObjectOfType<SpeedBonus>().Clone();
             FindObjectOfType<SlowdownBonus>().Clone();
 
-            //_playerBall = FindObjectOfType<PlayerBall>();
-
             _interactiveObjects = new ListExecuteObject();
             _reference = new Reference();
 
             PlayerBase player = null;
             if (PlayerType == PlayerType.Ball)
-            {
                 player = _reference.PlayerBall;
-            }
+            _reference.PlayerBall.ChangerSpeedDisplay += ChangeSpeed;
 
             foreach (IExecute intObj in _interactiveObjects)
             {
-                if (intObj is InteractiveObjectPoints bonus)
-                    bonus.CaughtPlayer += ChangePoints;
-                else if (intObj is SpeedBonus speedBonus)
-                    speedBonus.CaughtPlayer += _reference.PlayerBall.Booster;
-                else if (intObj is SlowdownBonus slowdownBonus)
-                    slowdownBonus.CaughtPlayer += _reference.PlayerBall.Slowdowner;
+                if (intObj is InteractiveObjectPoints bonusPoint)
+                    bonusPoint.CaughtPlayer += ChangePoints;
+                else if (intObj is InteractiveObjectSpeed bonusSpeed)
+                    bonusSpeed.CaughtPlayer += _reference.PlayerBall.ChangerSpeed;
             }
 
             _cameraController = new CameraController(player.transform, _reference.MainCamera.transform);
@@ -66,9 +64,11 @@ namespace Controllers
             _displayBonuses = new DisplayBonuses(_reference.BonuseDisplay);
 
             _displaySpeed = new DisplaySpeed(_reference.SpeedDisplay);
-            _reference.PlayerBall.SpeedBoost += ChangeSpeed;
-            _reference.PlayerBall.SpeedSlow += ChangeSpeed;
-            _reference.PlayerBall.SpeedNorm += ChangeSpeed;
+
+            _displayEndGame = new DisplayEndGame(_reference.EndGameDisplay);
+
+            _finishPoint = FindObjectOfType<FinishPoint>();
+            _finishPoint.OnFinish += FinalGame;
         }
 
         private void Update()
@@ -86,18 +86,14 @@ namespace Controllers
 
         public void Dispose()
         {
-            _reference.PlayerBall.SpeedBoost -= ChangeSpeed;
-            _reference.PlayerBall.SpeedSlow -= ChangeSpeed;
-            _reference.PlayerBall.SpeedNorm -= ChangeSpeed;
+            _reference.PlayerBall.ChangerSpeedDisplay -= ChangeSpeed;
 
             foreach (IExecute intObj in _interactiveObjects)
             {
                 if (intObj is InteractiveObjectPoints bonus)
                     bonus.CaughtPlayer -= ChangePoints;
-                else if (intObj is SpeedBonus speeBonus)
-                    speeBonus.CaughtPlayer -= _reference.PlayerBall.Booster;
-                else if (intObj is SlowdownBonus slowdownBonus)
-                    slowdownBonus.CaughtPlayer -= _reference.PlayerBall.Slowdowner;
+                else if (intObj is InteractiveObjectSpeed bonusSpeed)
+                    bonusSpeed.CaughtPlayer -= _reference.PlayerBall.ChangerSpeed;
             }
         }
 
@@ -109,5 +105,7 @@ namespace Controllers
         }
 
         private void ChangeSpeed(string value) => _displaySpeed.Display(value);
+
+        private void FinalGame() => _displayEndGame.GameOver(_sumBonus);
     }
 }

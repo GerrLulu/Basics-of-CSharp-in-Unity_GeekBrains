@@ -10,7 +10,7 @@ namespace Helper
         private Canvas _canvas;
         private GameObject _bonuseDisplay;
         private GameObject _speedDisplay;
-        //private GameObject _endGame;
+        private GameObject _endGameDisplay;
 
 
         public PlayerBall PlayerBall
@@ -70,19 +70,18 @@ namespace Helper
                 return _speedDisplay;
             }
         }
+        public GameObject EndGameDisplay
+        {
+            get
+            {
+                if (_endGameDisplay == null)
+                {
+                    var gameObject = Resources.Load<GameObject>("UI/EndGame");
+                    _endGameDisplay = Object.Instantiate(gameObject, Canvas.transform);
+                }
 
-        //public GameObject EndGame
-        //{
-        //    get
-        //    {
-        //        if (_endGame == null)
-        //        {
-        //            var gameObject = Resources.Load<GameObject>("UI/EndGame");
-        //            _endGame = Object.Instantiate(gameObject, Canvas.transform);
-        //        }
-
-        //        return _endGame;
-        //    }
-        //}
+                return _endGameDisplay;
+            }
+        }
     }
 }
