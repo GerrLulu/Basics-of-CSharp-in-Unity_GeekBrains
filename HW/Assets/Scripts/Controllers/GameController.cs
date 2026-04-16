@@ -28,6 +28,8 @@ namespace Controllers
         private DisplayEndGame _displayEndGame;
         private FinishPoint _finishPoint;
 
+        private (string name, int point) _tupleExamplePoint;
+
 
         private void Awake()
         {
@@ -47,7 +49,10 @@ namespace Controllers
             foreach (IExecute intObj in _interactiveObjects)
             {
                 if (intObj is InteractiveObjectPoints bonusPoint)
+                {
                     bonusPoint.CaughtPlayer += ChangePoints;
+                    _tupleExamplePoint = bonusPoint.ExampleTuplePoints();
+                }
                 else if (intObj is InteractiveObjectSpeed bonusSpeed)
                     bonusSpeed.CaughtPlayer += _reference.PlayerBall.ChangerSpeed;
             }
@@ -95,6 +100,8 @@ namespace Controllers
                 else if (intObj is InteractiveObjectSpeed bonusSpeed)
                     bonusSpeed.CaughtPlayer -= _reference.PlayerBall.ChangerSpeed;
             }
+
+            _finishPoint.OnFinish -= FinalGame;
         }
 
 
@@ -102,10 +109,16 @@ namespace Controllers
         {
             _sumBonus += value;
             _displayBonuses.Display(_sumBonus);
+
+            Debug.Log($"Name: {_tupleExamplePoint.name}; Point: {_tupleExamplePoint.point}");
         }
 
         private void ChangeSpeed(string value) => _displaySpeed.Display(value);
 
-        private void FinalGame() => _displayEndGame.GameOver(_sumBonus);
+        private void FinalGame()
+        {
+            Time.timeScale = 0.0f;
+            _displayEndGame.GameOver(_sumBonus);
+        }
     }
 }

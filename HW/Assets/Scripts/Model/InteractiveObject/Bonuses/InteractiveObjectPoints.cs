@@ -15,6 +15,11 @@ namespace Model.IntrctvObjcts.Bonuses
 
         protected override void Interaction() => CaughtPlayer?.Invoke(_points);
 
+        public (string name, int point) ExampleTuplePoints()
+        {
+            return (gameObject.name, _points);
+        }
+
         public int CompareTo(InteractiveObjectPoints other) => name.CompareTo(other.name);
     }
 }

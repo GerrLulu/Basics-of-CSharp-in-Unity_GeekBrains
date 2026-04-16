@@ -18,5 +18,10 @@ namespace Model.IntrctvObjcts.Bonuses
 
 
         protected override void Interaction() => CaughtPlayer?.Invoke(_speedMultiplier, _timeChanger, _speedInfo);
+
+        public (string name, float speedMultiplier, float timeChanger) ExampleTupleSpeed()
+        {
+            return (gameObject.name, _speedMultiplier, _timeChanger);
+        }
     }
 }
